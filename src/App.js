@@ -18,9 +18,9 @@ const App = () => {
       <Navbar />
       <Header />
 
-      {/* <footer className="App-footer">
+      <footer className="App-footer">
         {(text === "") ? 'Loading....' : text}
-      </footer> */}
+      </footer>
     </div>
   );
 }
