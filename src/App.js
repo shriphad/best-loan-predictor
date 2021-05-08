@@ -1,7 +1,16 @@
 import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    fetch('http://localhost:9000/APItest')
+      .then(res => res.text())
+      .then(re => setText(re))
+      .catch(err => console.log(err));
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +27,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <footer>
+        {(text === "") ? 'Loading....' : text}
+      </footer>
     </div>
   );
 }
